@@ -1,7 +1,7 @@
 {
 	"name": "@qsocket/transport-engine.io-latest",
 	"description": "A wrapper for the latest engine.io version, fully compatible with @qsocket/core, providing up-to-date server transport capabilities for qsocket projects.",
-	"version": "0.0.1-alpha",
+	"version": "0.0.1-beta",
 	"keywords": [
 		"qsocket",
 		"qsocket/core",
@@ -54,10 +54,10 @@
 		}
 	],
 	"dependencies": {
-		"engine.io": "6.6.2"
+		"engine.io-latest": "npm:engine.io@6.6.2"
 	},
 	"peerDependencies": {
-		"engine.io": "6.6.2"
+		"engine.io-latest": "npm:engine.io@6.6.2"
 	},
 	"devDependencies": {
 		"@types/eslint-config-prettier": "^6.11.3",
