@@ -1,7 +1,7 @@
 {
 	"name": "@qsocket/transport-engine.io-latest",
 	"description": "A wrapper for the latest engine.io version, fully compatible with @qsocket/core, providing up-to-date server transport capabilities for qsocket projects.",
-	"version": "0.0.1-beta",
+	"version": "0.0.1-rc",
 	"keywords": [
 		"qsocket",
 		"qsocket/core",
@@ -33,11 +33,9 @@
 		"dev": "tsup ./src/index.ts --watch --onSuccess \"node ./dist/index.js\"",
 		"start": "node ./dist/index.js",
 		"build": "tsup",
-		"build:types": "dts-bundle-generator -o dist/index.d.ts src/index.ts",
 		"lint": "eslint \"**/*.{ts,tsx}\"",
 		"lint:fix": "eslint \"**/*.{ts,tsx}\" --fix --color",
-		"format": "prettier --write src/",
-		"publish": "npm publish --access public"
+		"format": "prettier --write src/"
 	},
 	"repository": {
 		"type": "git",

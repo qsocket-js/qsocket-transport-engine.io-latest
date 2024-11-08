@@ -1,4 +1,13 @@
-import { Server, Socket, AttachOptions, ServerOptions } from 'engine.io-latest';
+import engine, { Server, Socket, AttachOptions, ServerOptions } from 'engine.io-latest';
+
+/**
+ * Default export `engine` is the main module from `engine.io-latest`, providing the full functionality of
+ * the Engine.IO server for version 6.6.2. It includes all core methods and properties required to set up
+ * and manage a real-time communication server with Engine.IO's low-latency transport options.
+ *
+ * @type {typeof engine}
+ */
+export default engine;
 
 /**
  * `QSocketTransportEIOLatestServer` is a class from `engine.io-latest`, used to create a new Engine.IO server instance.
