@@ -1,12 +1,40 @@
-import engine, { Server, Socket, AttachOptions, ServerOptions } from 'engine.io-latest';
+import { Server as HttpServer } from 'http';
+import { Server, Socket, AttachOptions, ServerOptions } from 'engine.io-latest';
 
 /**
- * Default export `engine` is the main module from `engine.io-latest`, providing the full functionality of
- * the Engine.IO server for version 6.6.2. It includes all core methods and properties required to set up
- * and manage a real-time communication server with Engine.IO's low-latency transport options.
+ * Creates a new Engine.IO server instance attached to an existing HTTP server.
  *
- * @type {typeof engine}
+ * @param httpServer - An existing HTTP server to attach the Engine.IO server to.
+ * @param options - Optional configuration options for the Engine.IO server.
+ * @returns A new `Server` instance attached to the specified HTTP server.
  */
+function engine(httpServer: HttpServer, options?: ServerOptions & AttachOptions): Server;
+
+/**
+ * Creates a new standalone Engine.IO server instance with specified options.
+ *
+ * @param options - Configuration options for the Engine.IO server.
+ * @returns A new `Server` instance.
+ */
+function engine(options?: ServerOptions & AttachOptions): Server;
+
+/**
+ * Implementation of the `engine` function, creating a `Server` instance based on provided arguments.
+ *
+ * @param arg1 - Either an HTTP server or options for the Engine.IO server.
+ * @param arg2 - Optional configuration options if `arg1` is an HTTP server.
+ * @returns A new `Server` instance.
+ */
+function engine(arg1?: unknown, arg2?: ServerOptions & AttachOptions): Server {
+	if (arg1 instanceof HttpServer) {
+		const server = new Server(arg2);
+		server.attach(arg1, arg2);
+		return server;
+	} else {
+		return new Server(arg1 as ServerOptions & AttachOptions);
+	}
+}
+
 export default engine;
 
 /**
